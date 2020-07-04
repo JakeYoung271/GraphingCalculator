@@ -1,0 +1,20 @@
+x,y_val,height=0,0,0 #similar to the current code for making the graph, this code calculates smaller increments between pixels to connect the dots
+pixels = [] # The main code block (other file) figures out how many increments between points are needed and fills accordingly. This code is shorter but may not completely "fill" lines if they get too steep
+connectors = int(input("pick - maybe try fifty or thirty - increase if your graph is steeper"))
+total=connectors*dimensions
+for i in range (0,total): 
+    x = (i*x_dim/total)+l_bound
+    y_val=eval(equation)
+    height=u_bound-y_val
+    height/=y_dim
+    height*=dimensions
+    height=round(height)
+    pixels.append(height)
+#print(len(pixels))
+#for i in range (0,len(pixels)):
+    #print(i,pixels[i])
+for i in range (0,total):
+    if 0<pixels[i]<dimensions:
+        graph[(pixels[i]),round(i/connectors),1]=0
+
+imshow(graph)
